@@ -1,0 +1,284 @@
+TestNg Automation Framework
+---------------------------
+
+-> Using TestNg We are Create the TestCases of the project.
+
+
+-> TestNg is Test Next Generation.
+
+
+	In our selenium java automation frameworks are two types.
+
+1) Junit
+
+2) TestNg
+
+
+-> Compare the two frameworks TestNg is powerfull.
+
+-> It is an Open Source Test Automation Frameworks.
+
+-> With out main method we can run automation script.
+
+-> we are write the testcases
+
+-> Easy to manage the paroject
+
+-> Parallele we are running testcase.
+
+How to Add the TestNg Features to Eclipse
+=========================================
+
+1) Go to Help - Select Install New Software
+
+2) click on ADD Button
+
+3) Enter Name Field : TestNg
+
+4) Enter Location : http://beust.com/eclipse/
+
+5) click on OK
+
+6) click on select All
+
+7) click on next
+
+8) click on next
+
+9) Select I accept radio button
+
+10) Click on finish
+
+
+
+How to  Write the TestCase In TestNg 
+------------------------------------
+
+	The TestNg Scripting containing the Functions.
+
+Function : It is self Containined block of statements are write once but exceute number of times...
+
+
+
+@Test - TestNg Automation
+
+@Test(priority=1) - The Test Method execution based on priority number.
+
+@Test(enabled=false) - This is used to stop and run the testcase.
+
+@BeforeMethod - This test case runing every test case before its excute first
+
+@AfterMethod - This TestCase running every test case after its execute last
+
+
+
+
+Example 1:
+=========
+
+
+package examplePackage;
+
+import org.testng.annotations.Test;
+
+public class Sample 
+{
+	@Test(priority=1)
+	public void Login()
+	{
+		System.out.println("Login Sucessfully....");		
+	}
+	
+	@Test(priority=3)
+	public void Diposit()
+	{
+		System.out.println("Money Diposit Sucessfully....");		
+	}
+	
+	@Test(priority=2)
+	public void Transfer()
+	{
+		System.out.println("Money Transfer Sucessfully....");		
+	}
+	
+	@Test(priority=4)
+	public void Logout()
+	{
+		System.out.println("Logout Sucessfully....");		
+	}
+	
+
+}
+
+
+
+Example 2 :
+=========
+
+package examplePackage;
+
+import org.testng.annotations.Test;
+
+public class Sample 
+{
+	@Test(priority=1)
+	public void Login()
+	{
+		System.out.println("Login Sucessfully....");		
+	}
+	
+	@Test(enabled=false)
+	public void Diposit()
+	{
+		System.out.println("Money Diposit Sucessfully....");		
+	}
+	
+	@Test(priority=2)
+	public void Transfer()
+	{
+		System.out.println("Money Transfer Sucessfully....");		
+	}
+	
+	@Test(priority=4)
+	public void Logout()
+	{
+		System.out.println("Logout Sucessfully....");		
+	}
+	
+
+}
+
+
+
+Example 3:
+==========
+
+
+package examplePackage;
+
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class Sample 
+{
+	@BeforeMethod
+	public void Login()
+	{
+		System.out.println("Login Sucessfully....");		
+	}
+	
+	@Test(priority=1)
+	public void Diposit()
+	{
+		System.out.println("Money Diposit Sucessfully....");		
+	}
+	
+	@Test(priority=2)
+	public void Transfer()
+	{
+		System.out.println("Money Transfer Sucessfully....");		
+	}
+	
+	@AfterMethod
+	public void Logout()
+	{
+		System.out.println("Logout Sucessfully....");		
+	}
+	
+
+}
+
+
+
+
+Example 4:
+---------
+
+package examplePackage;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class Sample 
+{
+	
+	WebDriver d;
+	
+	@BeforeMethod
+	public void DelayExecution()
+	{
+		try 
+		{
+			Thread.sleep(5000);
+		} 
+		catch (InterruptedException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	@Test(priority=1)
+	public void Open_Google()
+	{
+		d=new FirefoxDriver();
+		d.get("http://www.google.co.in");
+				
+	}
+	@Test(priority=2)
+	public void Open_Gmail()
+	{
+		d=new FirefoxDriver();
+		d.get("http://www.gmail.com");
+	}
+	
+	@Test(priority=3)
+	public void Open_Facebook()
+	{
+		d=new FirefoxDriver();
+		d.get("http://www.facebook.com");
+	}
+	
+	@Test(priority=4)
+	public void Open_Youtube()
+	{
+		d=new FirefoxDriver();
+		d.get("http://www.youtube.com");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
