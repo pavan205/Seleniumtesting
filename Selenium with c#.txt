@@ -1,0 +1,177 @@
+selenium c# 
+------------
+
+1) IDE : visual studio 2013,2015
+
+2) download selenium c#
+
+3) open visual studio
+
+	a) goto file - select new project 
+
+	b) select visual c# - console application.
+
+	c) remove the program.cs files in solution explorer
+
+	d) in solution explorer right click on project name - add - new item - select class file
+
+
+4) selenium dll(dynamic linking librarys)
+
+
+	a) Open solution explorer 
+
+	b) right click on referances - add referances
+
+	c) click on browse button
+
+	d) select net40 folder dlls
+
+5) automation script.
+
+
+
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using OpenQA.Selenium.Chrome;
+
+namespace FacebookLoginTest
+{
+    class FacebookLoginClass
+    {
+
+        public static void Main()
+        {
+            // create the webdriver
+
+            IWebDriver d = new ChromeDriver(@"E:\Softwares\Testing\chromedriver_win32\chromedriver.exe");
+
+            // open url
+            d.Navigate().GoToUrl("http://www.facebook.com");
+            Console.WriteLine(" Facebook url is open sucessfully...");
+
+
+            // enter facebook email id in testbox
+            Thread.Sleep(5000);
+            d.FindElement(By.Id("email")).SendKeys("mnaidu.thota@gmail.com");
+            Console.WriteLine(" email id sending sucessfully...");
+
+            // enter password to text box
+            Thread.Sleep(5000);
+            d.FindElement(By.Id("pass")).SendKeys("lakshmi@143");
+            Console.WriteLine(" Facebook password sending sucessfully...");
+
+            // click on login 
+            Thread.Sleep(5000);
+            d.FindElement(By.Id("u_0_m")).Click();
+
+            Console.WriteLine(" Facebook login sucessfully...");
+
+            
+        }
+    }
+}
+
+
+
+
+Model2:
+-------
+
+
+1) wirte the selenium automation script in c# unit testing
+
+
+
+-> Open Visual studion - file - new project - select visual c# select Test - Select unit test
+
+-> add selenium c# dlls
+
+
+
+
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System.Threading;
+
+namespace FacebookLoginUnitTestProject
+{
+    [TestClass]
+    public class FacebookUnitTest
+    {
+        [TestMethod]
+        public void Login()
+        {
+            // create the webdriver
+
+            IWebDriver d = new ChromeDriver(@"E:\Softwares\Testing\chromedriver_win32\chromedriver.exe");
+
+            // open url
+            d.Navigate().GoToUrl("http://www.facebook.com");
+           
+
+
+            // enter facebook email id in testbox
+            Thread.Sleep(5000);
+            d.FindElement(By.Id("email")).SendKeys("mnaidu.thota@gmail.com");
+        
+
+            // enter password to text box
+            Thread.Sleep(5000);
+            d.FindElement(By.Id("pass")).SendKeys("lakshmi@143");
+          
+
+            // click on login 
+            Thread.Sleep(5000);
+            d.FindElement(By.Id("u_0_m")).Click();
+
+           
+        }
+    }
+}
+
+
+
+-> Goto Test Menu - windows - Test Explorer
+
+- > click on run all 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
